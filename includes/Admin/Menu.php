@@ -20,13 +20,13 @@ class Menu {
 	 * @return void
 	 */
 	public function admin_menu() {
-		add_menu_page(
-			__( 'Speecheck', 'speecheck' ),
-			__( 'Speecheck', 'speecheck' ),
+		add_submenu_page(
+			'edit.php?post_type=speecheck-sentence',
+			__( 'Settings', 'speecheck' ),
+			__( 'Settings', 'speecheck' ),
 			'manage_options',
-			'speecheck',
-			[ $this, 'speecheck_page' ],
-			'dashicons-microphone'
+			'speecheck-settings',
+			[ $this, 'speecheck_settings_page' ],
 		);
 	}
 
@@ -35,7 +35,7 @@ class Menu {
 	 *
 	 * @return void
 	 */
-	public function speecheck_page() {
+	public function speecheck_settings_page() {
 		echo 'Hello World!';
 	}
 }
