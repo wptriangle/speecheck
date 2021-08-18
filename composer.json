@@ -1,0 +1,20 @@
+{
+    "name": "nfmohit/speecheck",
+    "description": "A speaking proficiency assessment plugin for WordPress",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Nahid Ferdous Mohit",
+            "email": "hello@nahid.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Speecheck\\": "includes/"
+        },
+        "files": []
+    }
+}
