@@ -10,7 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "google/cloud-speech": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "Speecheck\\": "includes/"
