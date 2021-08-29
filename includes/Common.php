@@ -2,15 +2,15 @@
 namespace Speecheck;
 
 /*
- * The plugin admin class
+ * The plugin common class
  */
-class Admin {
+class Common {
 	/**
 	 * The class constructor
 	 *
 	 * @return void
 	 */
 	function __construct() {
-		new Admin\Menu();
+		new Common\Sentence();
 	}
 }

@@ -99,6 +99,8 @@ final class Speecheck {
 	 * @return void
 	 */
 	public function init_plugin() {
+		new Speecheck\Common();
+
 		if ( is_admin() ) {
 			new Speecheck\Admin();
 		} else {
