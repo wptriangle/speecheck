@@ -71,7 +71,6 @@ final class Speecheck {
 		define( 'SPEECHECK_VERSION', self::version );
 		define( 'SPEECHECK_FILE', __FILE__ );
 		define( 'SPEECHECK_PATH', __DIR__ );
-		define( 'SPEECHECK_PATH', __DIR__ );
 		define( 'SPEECHECK_URL', plugins_url( '', SPEECHECK_FILE ) );
 		define( 'SPEECHECK_ASSETS', SPEECHECK_URL . '/assets' );
 	}
