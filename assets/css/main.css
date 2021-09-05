@@ -1,0 +1,70 @@
+.sc__container {
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	margin: 0 auto;
+	max-width: 680px;
+}
+
+.sc__sentence {
+	border-bottom: 2px solid #ccc;
+	font-family: Roboto, sans-serif;
+	font-size: 18px;
+	padding: 20px;
+}
+
+.sc__sentence > p {
+	margin: 0;
+} 
+
+.sc__actions {
+	align-items: center;
+	display: flex;
+	justify-content: right;
+	padding: 15px 20px;
+}
+
+.sc__actions > button:not( :last-child ) {
+	margin-right: 10px;
+}
+
+.sc__button {
+	align-items: center;
+	border-radius: 4px;
+	font-family: Roboto, sans-serif;
+	display: flex;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px 24px;
+}
+
+.sc__button > span {
+	font-size: 18px;
+	margin-right: 5px;
+}
+
+.sc__button.sc__button--primary {
+	background-color: #1a73e8;
+    color: #fff;
+}
+
+.sc__button.sc__button--primary:hover {
+	background-color: #1f63bb;
+}
+
+.sc__button.sc__button--danger {
+	background-color: #ff0266;
+    color: #fff;
+}
+
+.sc__button.sc__button--danger:hover {
+	background-color: #d4135f;
+}
+
+.sc__button.sc__button--good {
+	background-color: #03dac5;
+    color: #212121;
+}
+
+.sc__button.sc__button--good:hover {
+	background-color: #0dcab7;
+}
