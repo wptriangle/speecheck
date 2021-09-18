@@ -1,3 +1,9 @@
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
 .sc__container {
 	border: 2px solid #ccc;
 	border-radius: 8px;
@@ -76,4 +82,8 @@
 
 .sc__button.sc__button--good:hover {
 	background-color: #0dcab7;
+}
+
+#sc-stop > span {
+	animation: blink 1s linear infinite;
 }
