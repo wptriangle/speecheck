@@ -14,7 +14,16 @@
 
 .sc__sentence > p {
 	margin: 0;
-} 
+}
+
+.sc__preview {
+	border-bottom: 2px solid #ccc;
+	padding: 20px 20px 8px 20px;
+}
+
+.sc__preview > audio {
+	width: 100%;
+}
 
 .sc__actions {
 	align-items: center;
