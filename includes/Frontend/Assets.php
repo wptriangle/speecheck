@@ -40,11 +40,20 @@ class Assets {
 			'https://fonts.googleapis.com/icon?family=Material+Icons'
 		);
 
+		// Recorder.js
+		wp_enqueue_script(
+			'speecheck-recorder',
+			'https://cdn.jsdelivr.net/gh/mattdiamond/Recorderjs@08e7abd99739be6946f19f6806ccb368138f2dd3/dist/recorder.js',
+			[],
+			SPEECHECK_VERSION,
+			true
+		);
+
 		// Plugin JS scripts
 		wp_enqueue_script(
 			'speecheck',
 			SPEECHECK_URL . '/assets/js/main.js',
-			[],
+			[ 'speecheck-recorder' ],
 			SPEECHECK_VERSION,
 			true
 		);
