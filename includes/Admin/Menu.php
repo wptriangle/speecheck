@@ -36,6 +36,6 @@ class Menu {
 	 * @return void
 	 */
 	public function speecheck_settings_page() {
-		echo 'Hello World!';
+		echo 'Coming soon';
 	}
 }
