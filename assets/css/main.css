@@ -4,11 +4,30 @@
 	}
 }
 
-.sc__container {
-	border: 2px solid #ccc;
-	border-radius: 8px;
+@keyframes rotate {
+	100% {
+		transform: rotate( 360deg );
+	}
+}
+
+#sc-loader {
+	text-align: center;
+	width: 100%;
+}
+
+#sc-loader > span {
+	display: inline-block;
+	font-size: 38px;
+}
+
+.sc_container {
 	margin: 0 auto;
 	max-width: 680px;
+}
+
+.sc__content {
+	border: 2px solid #ccc;
+	border-radius: 8px;
 }
 
 .sc__sentence {
@@ -86,4 +105,8 @@
 
 #sc-stop > span {
 	animation: blink 1s linear infinite;
+}
+
+.sc-loading-icon {
+	animation: rotate 1s linear infinite;
 }
