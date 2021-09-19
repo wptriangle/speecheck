@@ -20,6 +20,8 @@ class Assets {
 	 * @return void
 	 */
 	public function load_frontend_scripts() {
+		global $post;
+
 		// Plugin styles
 		wp_enqueue_style(
 			'speecheck',
@@ -40,6 +42,15 @@ class Assets {
 			'https://fonts.googleapis.com/icon?family=Material+Icons'
 		);
 
+		// Google Rest API
+		wp_enqueue_script(
+			'speecheck-gapi',
+			'https://apis.google.com/js/api.js',
+			[],
+			SPEECHECK_VERSION,
+			true,
+		);
+
 		// Recorder.js
 		wp_enqueue_script(
 			'speecheck-recorder',
@@ -49,13 +60,31 @@ class Assets {
 			true
 		);
 
+		// String similarity
+		wp_enqueue_script(
+			'speecheck-string-similarity',
+			'https://unpkg.com/string-similarity/umd/string-similarity.min.js',
+			[],
+			SPEECHECK_VERSION,
+			true,
+		);
+
 		// Plugin JS scripts
 		wp_enqueue_script(
 			'speecheck',
 			SPEECHECK_URL . '/assets/js/main.js',
-			[ 'speecheck-recorder' ],
+			[
+				'speecheck-gapi',
+				'speecheck-recorder',
+				'speecheck-string-similarity',
+			],
 			SPEECHECK_VERSION,
 			true
 		);
+
+		// Pass post content to JS
+		wp_localize_script( 'speecheck', 'speecheckVars', [
+			'post_content' => $post->post_content,
+		] );
 	}
 }
