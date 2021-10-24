@@ -12,5 +12,6 @@ class Admin {
 	 */
 	function __construct() {
 		new Admin\Menu();
+		new Admin\SentenceOptions();
 	}
 }
