@@ -1,4 +1,4 @@
-const { gapi } = window;
+const { gapi, speecheckVars } = window;
 
 /**
  * Load Gapi client
@@ -36,6 +36,8 @@ export const loadGapi = ( apiKey, onLoad = () => {}, onError = () => {} ) => {
  * @return {void}
  */
 export const recognizeSpeech = ( base64Audio ) => {
+	const { languageCode } = speecheckVars;
+
 	return gapi.client.speech.speech.recognize( {
 		resource: {
 			audio: {
@@ -43,7 +45,7 @@ export const recognizeSpeech = ( base64Audio ) => {
 			},
 			config: {
 				encoding: 'LINEAR16',
-				languageCode: 'en-US',
+				languageCode,
 			},
 		},
 	} );

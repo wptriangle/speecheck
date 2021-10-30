@@ -27,6 +27,7 @@ class Assets {
 
 		global $post;
 		$asset_file = include( SPEECHECK_PATH . '/build/front.asset.php');
+		$settings = get_option( 'speecheck_settings' );
 
 		// Plugin front styles
 		wp_enqueue_style(
@@ -94,6 +95,8 @@ class Assets {
 			'postContent' => $post->post_content,
 			'sentenceAudio' => get_post_meta(  $post->ID, 'speecheck_sentence_audio', true ),
 			'sentenceRaw' => get_post_meta(  $post->ID, 'speecheck_sentence_comparison', true ),
+			'gapiKey' => $settings[ 'speecheck_settings_apikey' ],
+			'languageCode' => $settings[ 'speecheck_settings_language' ],
 		] );
 	}
 }
