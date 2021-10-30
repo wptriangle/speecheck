@@ -60,9 +60,8 @@ const Speecheck = () => {
 						closeError={ () => setError( false ) }
 					/>
 				) }
-				{ ! isGapiLoaded ? (
-					<Loader />
-				) : (
+				{ ! isGapiLoaded && false === error && <Loader /> }
+				{ isGapiLoaded && (
 					<div className="speecheck__content">
 						<InstructorMaterials />
 						{ isSet( recording ) && (
