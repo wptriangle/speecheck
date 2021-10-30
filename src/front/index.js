@@ -1,3 +1,24 @@
+/**
+ * External dependencies
+ */
+import { render } from '@wordpress/element';
+import domReady from '@wordpress/dom-ready';
+
+/**
+ * Internal dependencies
+ */
+import Speecheck from './components/views/Speecheck/Speecheck';
+
+domReady( () => {
+	setTimeout( () => {
+		const speecheck = document.getElementById( 'speecheck' );
+
+		render( <Speecheck />, speecheck );
+	}, 500 );
+} );
+
+///// TO BE REMOVED
+
 import './index.scss';
 
 // URL interface
@@ -52,7 +73,7 @@ const resetDom = () => {
 	submitIcon.style.display = 'inline-block';
 	submittingIcon.style.display = 'none';
 	tryAgainButton.style.display = 'none';
-	sentence.innerHTML = window?.speecheckVars?.post_content;
+	sentence.innerHTML = window?.speecheckVars?.postContent;
 };
 
 /**
@@ -244,7 +265,7 @@ const loadClient = () => {
  * @param {string} recordedText The recorded text
  */
 const analyseText = ( recordedText ) => {
-	const originalText = speecheckVars?.post_content.toLowerCase();
+	const originalText = speecheckVars?.postContent.toLowerCase();
 	const score =
 		stringSimilarity
 			.compareTwoStrings( originalText, recordedText )

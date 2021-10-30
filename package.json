@@ -17,5 +17,10 @@
   "scripts": {
     "start": "wp-scripts start",
     "build": "wp-scripts build"
+  },
+  "dependencies": {
+    "@wordpress/dom-ready": "^3.2.2",
+    "@wordpress/element": "^4.0.3",
+    "@wordpress/i18n": "^4.2.3"
   }
 }

@@ -1,0 +1,21 @@
+.speecheck__instructor-materials {
+	align-items: center;
+	border-bottom: 2px solid #FF9200;
+	display: flex;
+	padding: 20px;
+
+	&__sentence {
+		flex-basis: 90%;
+		font-size: 18px;
+		margin-bottom: 0;
+		width: 90%;
+	}
+
+	&__audio {
+		align-items: center;
+		display: flex;
+		flex-basis: 10%;
+		justify-content: flex-end;
+		width: 10%;
+	}
+}

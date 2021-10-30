@@ -1,0 +1,12 @@
+.speecheck {
+	&__container {
+		margin: 10px auto;
+		max-width: 680px;
+	}
+
+	&__content {
+		border: 2px solid #FF9200;
+		border-radius: 8px;
+		font-family: Roboto, sans-serif;
+	}
+}

@@ -2,6 +2,7 @@
 get_header();
 while ( have_posts() ) : the_post(); ?>
 	<div class="entry-content">
+		<div id="speecheck"></div>
 		<div class="sc__container">
 			<div id="sc-loader" class="sc-loading-icon material-icons">
 				<span class="sc-loading-icon material-icons">

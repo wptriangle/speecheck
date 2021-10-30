@@ -91,7 +91,9 @@ class Assets {
 
 		// Pass post content to JS
 		wp_localize_script( 'speecheck-front-scripts', 'speecheckVars', [
-			'post_content' => $post->post_content,
+			'postContent' => $post->post_content,
+			'sentenceAudio' => get_post_meta(  $post->ID, 'speecheck_sentence_audio', true ),
+			'sentenceRaw' => get_post_meta(  $post->ID, 'speecheck_sentence_comparison', true ),
 		] );
 	}
 }

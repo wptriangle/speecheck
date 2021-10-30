@@ -1,0 +1,41 @@
+.speecheck__button {
+	align-items: center;
+	border-radius: 4px;
+	font-family: Roboto, sans-serif;
+	display: flex;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px 24px;
+
+	> span {
+		font-size: 18px;
+		margin-right: 5px;
+	}
+
+	&--primary {
+		background-color: #511BC0;
+		color: #fff;
+
+		&:hover {
+			background-color: #1f63bb;
+		}
+	}
+
+	&--danger {
+		background-color: #ff0266;
+		color: #fff;
+
+		&:hover {
+			background-color: #d4135f;
+		}
+	}
+
+	&--good {
+		background-color: #03dac5;
+		color: #212121;
+
+		&:hover {
+			background-color: #0dcab7;
+		}
+	}
+}
