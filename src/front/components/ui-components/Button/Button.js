@@ -1,4 +1,14 @@
 /**
+ * External dependencies
+ */
+import classNames from 'classnames';
+
+/**
+ * Internal dependencies
+ */
+import { isSet } from '../../../helpers/common';
+
+/**
  * Import styles
  */
 import './Button.scss';
@@ -19,13 +29,29 @@ const Button = ( {
 	state = 'primary',
 	icon,
 	onClick = () => {},
+	iconAnimation = false,
 } ) => {
 	return (
 		<button
-			className={ `speecheck__button speecheck__button--${ state }` }
+			className={ classNames( 'speecheck__button', {
+				[ `speecheck__button--${ state }` ]: isSet( state ),
+			} ) }
 			onClick={ onClick }
 		>
-			{ icon && <span className="material-icons">{ icon }</span> }
+			{ icon && (
+				<span
+					className={ classNames(
+						'speecheck__button__icon material-icons',
+						{
+							[ `speecheck__button__icon--${ iconAnimation }` ]: isSet(
+								iconAnimation
+							),
+						}
+					) }
+				>
+					{ icon }
+				</span>
+			) }
 			{ children }
 		</button>
 	);

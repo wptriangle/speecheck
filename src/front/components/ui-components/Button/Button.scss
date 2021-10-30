@@ -7,11 +7,6 @@
 	font-weight: 500;
 	padding: 10px 24px;
 
-	> span {
-		font-size: 18px;
-		margin-right: 5px;
-	}
-
 	&--primary {
 		background-color: #511BC0;
 		color: #fff;
@@ -36,6 +31,19 @@
 
 		&:hover {
 			background-color: #0dcab7;
+		}
+	}
+
+	&__icon {
+		font-size: 18px;
+		margin-right: 5px;
+
+		&--rotate {
+			animation: rotate 1s linear infinite;
+		}
+
+		&--blink {
+			animation: blink 1s linear infinite;
 		}
 	}
 }

@@ -1,0 +1,12 @@
+.speecheck__loader {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	min-height: 300px;
+	width: 100%;
+	
+	> span {
+		display: inline-block;
+		font-size: 38px;
+	}
+}

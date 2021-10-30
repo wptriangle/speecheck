@@ -1,14 +1,4 @@
-@keyframes blink {
-	50% {
-		opacity: 0;
-	}
-}
 
-@keyframes rotate {
-	100% {
-		transform: rotate( 360deg );
-	}
-}
 
 #sc-loader {
 	text-align: center;
@@ -107,6 +97,19 @@
 	animation: blink 1s linear infinite;
 }
 
-.sc-loading-icon {
+/// Delete above ///
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate( 360deg );
+	}
+}
+
+.speecheck-loading-icon {
 	animation: rotate 1s linear infinite;
 }

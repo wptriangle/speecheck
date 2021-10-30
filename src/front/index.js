@@ -9,6 +9,11 @@ import domReady from '@wordpress/dom-ready';
  */
 import Speecheck from './components/views/Speecheck/Speecheck';
 
+/**
+ * Import global styles
+ */
+import './index.scss';
+
 domReady( () => {
 	setTimeout( () => {
 		const speecheck = document.getElementById( 'speecheck' );
@@ -18,8 +23,6 @@ domReady( () => {
 } );
 
 ///// TO BE REMOVED
-
-import './index.scss';
 
 // URL interface
 URL = window.URL || window.webkitURL;
