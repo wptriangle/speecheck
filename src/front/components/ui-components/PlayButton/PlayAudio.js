@@ -1,7 +1,7 @@
 /* global Audio */
 
 /**
- * External dependencies
+ * WordPress dependencies
  */
 import { useState, useEffect } from '@wordpress/element';
 

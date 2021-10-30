@@ -1,8 +1,4 @@
 /**
- * Internal dependencies
- */
-
-/**
  * Import styles
  */
 import './PreviewRecording.scss';

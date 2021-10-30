@@ -1,14 +1,36 @@
+/**
+ * Recorder class
+ */
 export class Recorder {
+	/**
+	 * The class constructor
+	 *
+	 * @return {void}
+	 */
 	constructor() {
+		// Callback function definitions
 		this.onStart = () => {};
 		this.onStop = () => {};
 		this.onError = () => {};
 
+		// getUserMeta() stream
 		this.gumStream = false;
+
+		// RecorderJS object
 		this.rec = false;
+
+		// Recording state
 		this.isRecording = false;
 	}
 
+	/**
+	 * Fire callbacks on different actions
+	 *
+	 * @param {string}   action The callback to fire the action on
+	 * @param {Function} fn     The callback function
+	 *
+	 * @return {void}
+	 */
 	on( action, fn = () => {} ) {
 		switch ( action ) {
 			case 'start':
@@ -22,6 +44,11 @@ export class Recorder {
 		}
 	}
 
+	/**
+	 * Starts the recording
+	 *
+	 * @return {void}
+	 */
 	startRecording() {
 		const { navigator, AudioContext, Recorder: RecorderJS } = window;
 
@@ -31,7 +58,10 @@ export class Recorder {
 				video: false,
 			} )
 			.then( ( stream ) => {
+				// Update recording state
 				this.isRecording = true;
+
+				// Run callback function
 				this.onStart();
 
 				const audioContext = new AudioContext();
@@ -55,11 +85,13 @@ export class Recorder {
 				}, 30000 );
 			} )
 			.catch( ( err ) => {
+				// Send error through callback
 				this.onError( err );
 			} );
 	}
 
 	stopRecording() {
+		// Update recording state
 		this.isRecording = false;
 
 		// Tell the recorder to stop the recording

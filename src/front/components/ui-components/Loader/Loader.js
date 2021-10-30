@@ -4,9 +4,9 @@
 import './Loader.scss';
 
 /**
- * The main component
+ * The loader component
  *
- * @return {JSX} The main component code
+ * @return {JSX} The loader component code
  */
 const Loader = () => {
 	return (

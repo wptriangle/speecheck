@@ -33,6 +33,7 @@ const Speecheck = () => {
 	const [ error, setError ] = useState( false );
 	const [ returnedText, setReturnedText ] = useState( false );
 
+	// Load Gapi
 	useEffect( () => {
 		loadGapi(
 			'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E',

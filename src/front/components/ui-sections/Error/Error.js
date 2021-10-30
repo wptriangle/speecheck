@@ -18,6 +18,7 @@ import './Error.scss';
  * @return {JSX} The error component code
  */
 const Error = ( { error, closeError = () => {}, autoClose = true } ) => {
+	// If autoClose is on, close the error after 30 seconds
 	useEffect( () => {
 		if ( ! autoClose ) {
 			return;

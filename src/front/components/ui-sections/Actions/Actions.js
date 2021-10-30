@@ -40,6 +40,7 @@ const Actions = ( {
 	const [ isSubmitting, setIsSubmitting ] = useState( false );
 	const [ isComplete, setIsComplete ] = useState( false );
 
+	// Set necessary callbacks for the Recorder class
 	useEffect( () => {
 		recorder.on( 'start', () => setIsRecording( true ) );
 		recorder.on( 'stop', ( blob ) => {
@@ -53,6 +54,7 @@ const Actions = ( {
 	// Previous value of isSubmitting state
 	const prevIsSubmitting = usePrevious( isSubmitting );
 
+	// Handle the isComplete state
 	useEffect( () => {
 		if ( true === prevIsSubmitting && false === isSubmitting ) {
 			setIsComplete( true );
