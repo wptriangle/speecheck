@@ -3,6 +3,8 @@
  */
 import PlayAudio from '../../ui-components/PlayButton/PlayAudio';
 
+import { isSet } from '../../../helpers/common';
+
 /**
  * Import styles
  */
@@ -22,9 +24,11 @@ const InstructorMaterials = () => {
 			<p className="speecheck__instructor-materials__sentence">
 				{ postContent }
 			</p>
-			<div className="speecheck__instructor-materials__audio">
-				<PlayAudio url={ sentenceAudio } />
-			</div>
+			{ isSet( sentenceAudio ) && (
+				<div className="speecheck__instructor-materials__audio">
+					<PlayAudio url={ sentenceAudio } />
+				</div>
+			) }
 		</div>
 	);
 };

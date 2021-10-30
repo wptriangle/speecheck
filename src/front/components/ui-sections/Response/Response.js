@@ -1,4 +1,9 @@
 /**
+ * Internal dependencies
+ */
+import { isSet } from '../../../helpers/common';
+
+/**
  * Import styles
  */
 import './Response.scss';
@@ -13,7 +18,12 @@ import './Response.scss';
  */
 const Response = ( { returnedText } ) => {
 	const { speecheckVars, stringSimilarity } = window;
-	const { sentenceRaw } = speecheckVars;
+	const { sentenceRaw, postContent } = speecheckVars;
+
+	// The reference text
+	const referenceText = isSet( sentenceRaw )
+		? sentenceRaw.toLowerCase()
+		: postContent.toLowerCase();
 
 	/**
 	 * Parse out words from a sentence
@@ -59,17 +69,14 @@ const Response = ( { returnedText } ) => {
 						getWords( returnedText ),
 						getWords( returnedText ).filter(
 							( word ) =>
-								! getWords( sentenceRaw ).includes( word )
+								! getWords( referenceText ).includes( word )
 						)
 					),
 				} }
 			/>
 			<span className="speecheck__response__score">
 				{ stringSimilarity
-					.compareTwoStrings(
-						sentenceRaw.toLowerCase(),
-						returnedText
-					)
+					.compareTwoStrings( referenceText, returnedText )
 					.toFixed( 2 ) * 100 }
 				%
 			</span>
