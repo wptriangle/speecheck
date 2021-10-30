@@ -23,7 +23,7 @@ export class Recorder {
 	}
 
 	startRecording() {
-		const { navigator, AudioContext, alert, Recorder: RecorderJS } = window;
+		const { navigator, AudioContext, Recorder: RecorderJS } = window;
 
 		navigator.mediaDevices
 			.getUserMedia( {

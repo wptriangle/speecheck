@@ -6,6 +6,7 @@
 	width: 100%;
 	
 	> span {
+		animation: rotate 1s linear infinite;
 		display: inline-block;
 		font-size: 38px;
 	}

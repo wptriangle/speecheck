@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -33,16 +33,22 @@ const Speecheck = () => {
 	const [ error, setError ] = useState( false );
 	const [ returnedText, setReturnedText ] = useState( false );
 
-	loadGapi( 'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E' )
-		.then( () => setIsGapiLoaded( true ) )
-		.catch( () =>
-			setError(
-				__(
-					'Failed to load required APIs. Please try again later.',
-					'speecheck'
-				)
-			)
+	useEffect( () => {
+		loadGapi(
+			'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E',
+			() => {
+				setIsGapiLoaded( true );
+			},
+			() => {
+				setError(
+					__(
+						'Failed to load required APIs. Please try again later.',
+						'speecheck'
+					)
+				);
+			}
 		);
+	}, [] );
 
 	return (
 		<>
