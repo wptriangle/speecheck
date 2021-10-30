@@ -235,7 +235,7 @@ class SentenceOptionsMetabox {
 
 				update_post_meta( $post_id, $field[ 'id' ], $_POST[ $field[ 'id' ] ] );
 			} else if ( $field[ 'type' ] === 'checkbox' ) {
-				update_post_meta( $post_id, $field['id'], '0' );
+				update_post_meta( $post_id, $field[ 'id' ], '0' );
 			}
 		}
 	}

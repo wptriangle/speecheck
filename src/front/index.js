@@ -1,3 +1,5 @@
+import './index.scss';
+
 // URL interface
 URL = window.URL || window.webkitURL;
 
@@ -50,26 +52,26 @@ const resetDom = () => {
 	submitIcon.style.display = 'inline-block';
 	submittingIcon.style.display = 'none';
 	tryAgainButton.style.display = 'none';
-	sentence.innerHTML = speecheckVars?.post_content;
+	sentence.innerHTML = window?.speecheckVars?.post_content;
 };
 
 /**
  * Convert a blob to base64
  *
- * @param {blob} blob The blob to convert
- * @param {function} callbackFn The function to run after conversion
+ * @param {blob}     blob       The blob to convert
+ * @param {Function} callbackFn The function to run after conversion
  *
  * @return {void}
  */
 const convertToBase64 = ( blob, callbackFn = () => {} ) => {
-    const reader = new FileReader();
+	const reader = new FileReader();
 
-    reader.onloadend = () => {
+	reader.onloadend = () => {
 		callbackFn( reader.result.split( ',' )[ 1 ] );
-    }
+	};
 
 	// Conversion
-    reader.readAsDataURL( blob ); 
+	reader.readAsDataURL( blob );
 };
 
 /**
@@ -78,47 +80,47 @@ const convertToBase64 = ( blob, callbackFn = () => {} ) => {
  * @return {void}
  */
 const startRecording = () => {
-    const constraints = {
+	const constraints = {
 		audio: true,
-		video:false
+		video: false,
 	};
 
-	navigator.mediaDevices.getUserMedia( constraints ).then( ( stream ) => {
-		// Update DOM element displays after recording start
-		recordButton.style.display = 'none';
-		recordAgainButton.style.display = 'none';
-		stopButton.style.display = 'flex';
-		submitButton.style.display = 'none';
-		playerContainer.style.display = 'none';
+	navigator.mediaDevices
+		.getUserMedia( constraints )
+		.then( ( stream ) => {
+			// Update DOM element displays after recording start
+			recordButton.style.display = 'none';
+			recordAgainButton.style.display = 'none';
+			stopButton.style.display = 'flex';
+			submitButton.style.display = 'none';
+			playerContainer.style.display = 'none';
 
-		// Set recording state
-		isRecording = true;
+			// Set recording state
+			isRecording = true;
 
-		audioContext = new AudioContext();
+			audioContext = new AudioContext();
 
-		// Assign to gumStream for later use
-		gumStream = stream;
-		
-		// Use the stream
-		input = audioContext.createMediaStreamSource( stream );
+			// Assign to gumStream for later use
+			gumStream = stream;
 
-		rec = new Recorder(
-			input,
-			{ numChannels: 1 }
-		);
+			// Use the stream
+			input = audioContext.createMediaStreamSource( stream );
 
-		// Start the recording process
-		rec.record();
+			rec = new Recorder( input, { numChannels: 1 } );
 
-		// Set max recording length to 30 seconds
-		window.setTimeout( () => {
-			if ( true === isRecording ) {
-				stopRecording();
-			}
-		}, 30000 );
-	} ).catch( ( err ) => {
-		alert( err );
-	} );
+			// Start the recording process
+			rec.record();
+
+			// Set max recording length to 30 seconds
+			window.setTimeout( () => {
+				if ( true === isRecording ) {
+					stopRecording();
+				}
+			}, 30000 );
+		} )
+		.catch( ( err ) => {
+			alert( err );
+		} );
 };
 
 /**
@@ -134,7 +136,7 @@ const stopRecording = () => {
 
 	// Set recording state
 	isRecording = false;
-	
+
 	// Tell the recorder to stop the recording
 	rec.stop();
 
@@ -159,30 +161,33 @@ const submitRecording = () => {
 	submittingIcon.style.display = 'inline-block';
 
 	// Send speech to Google
-	gapi.client.speech.speech.recognize( {
-		'resource': {
-			'audio': {
-				'content': audioBase64,
+	gapi.client.speech.speech
+		.recognize( {
+			resource: {
+				audio: {
+					content: audioBase64,
+				},
+				config: {
+					encoding: 'LINEAR16',
+					languageCode: 'en-US',
+				},
 			},
-			'config': {
-				'encoding': 'LINEAR16',
-				'languageCode': 'en-US',
-			}
-		}
-	} )
-	.then( ( response ) => {
-		// Update DOM element displays after Google responds
-		submitButton.style.display = 'none';
-		recordAgainButton.style.display = 'flex';
+		} )
+		.then( ( response ) => {
+			// Update DOM element displays after Google responds
+			submitButton.style.display = 'none';
+			recordAgainButton.style.display = 'flex';
 
-		// Set submitting state
-		submitIcon.style.display = 'inline-block';
-		submittingIcon.style.display = 'none';
+			// Set submitting state
+			submitIcon.style.display = 'inline-block';
+			submittingIcon.style.display = 'none';
 
-		// Analyse the text
-		analyseText( response.result.results[ 0 ].alternatives[ 0 ].transcript );
-	} );
-}
+			// Analyse the text
+			analyseText(
+				response.result.results[ 0 ].alternatives[ 0 ].transcript
+			);
+		} );
+};
 
 /**
  * Process the recorded audio
@@ -191,7 +196,7 @@ const submitRecording = () => {
  *
  * @reutrn {void}
  */
-const processRecording = ( blob ) => {	
+const processRecording = ( blob ) => {
 	const url = URL.createObjectURL( blob );
 
 	// Update DOM element displays after recording available
@@ -212,21 +217,26 @@ const processRecording = ( blob ) => {
 /**
  * Load Google speech client
  *
- * @returns {void}
+ * @return {void}
  */
 const loadClient = () => {
 	// Set Google API key
 	gapi.client.setApiKey( 'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E' );
 
 	// Load Google speech client
-    return gapi.client.load( 'https://speech.googleapis.com/$discovery/rest?version=v1p1beta1' )
+	return gapi.client
+		.load(
+			'https://speech.googleapis.com/$discovery/rest?version=v1p1beta1'
+		)
 		.then( () => {
 			// Update DOM displays after load
 			loader.style.display = 'none';
 			container.style.display = 'block';
 		} )
-		.catch( ( err ) => console.error( 'Error loading GAPI client for API', err ) );
-}
+		.catch( ( err ) =>
+			console.error( 'Error loading GAPI client for API', err )
+		);
+};
 
 /**
  * Compare recorded text with the original text and return a score
@@ -235,7 +245,10 @@ const loadClient = () => {
  */
 const analyseText = ( recordedText ) => {
 	const originalText = speecheckVars?.post_content.toLowerCase();
-	const score = stringSimilarity.compareTwoStrings( originalText, recordedText ).toFixed( 2 ) * 100;
+	const score =
+		stringSimilarity
+			.compareTwoStrings( originalText, recordedText )
+			.toFixed( 2 ) * 100;
 
 	// Display score
 	sentence.innerHTML = `You have scored ${ score }%.`;

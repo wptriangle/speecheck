@@ -11,6 +11,7 @@ class Admin {
 	 * @return void
 	 */
 	function __construct() {
+		new Admin\Assets();
 		new Admin\Menu();
 		new Admin\SentenceOptionsMetabox();
 	}

@@ -20,12 +20,18 @@ class Assets {
 	 * @return void
 	 */
 	public function load_frontend_scripts() {
-		global $post;
+		// Do not load if not sentence post type
+		if( ! is_singular( 'speecheck-sentence' ) ) {
+			return;
+		}
 
-		// Plugin styles
+		global $post;
+		$asset_file = include( SPEECHECK_PATH . '/build/front.asset.php');
+
+		// Plugin front styles
 		wp_enqueue_style(
-			'speecheck',
-			SPEECHECK_URL . '/assets/css/main.css',
+			'speecheck-front-styles',
+			SPEECHECK_URL . '/build/front.css',
 			[],
 			SPEECHECK_VERSION
 		);
@@ -69,21 +75,22 @@ class Assets {
 			true,
 		);
 
-		// Plugin JS scripts
+		// Plugin front scripts
 		wp_enqueue_script(
-			'speecheck',
-			SPEECHECK_URL . '/assets/js/main.js',
+			'speecheck-front-scripts',
+			SPEECHECK_URL . '/build/front.js',
 			[
 				'speecheck-gapi',
 				'speecheck-recorder',
 				'speecheck-string-similarity',
+				...$asset_file[ 'dependencies' ]
 			],
-			SPEECHECK_VERSION,
+			$asset_file[ 'version' ],
 			true
 		);
 
 		// Pass post content to JS
-		wp_localize_script( 'speecheck', 'speecheckVars', [
+		wp_localize_script( 'speecheck-front-scripts', 'speecheckVars', [
 			'post_content' => $post->post_content,
 		] );
 	}
