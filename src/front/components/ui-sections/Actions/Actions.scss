@@ -4,6 +4,10 @@
 	justify-content: right;
 	padding: 15px 20px;
 
+	&.speecheck__section {
+		border-bottom: none;
+	}
+
 	> button:not( :last-child ) {
 		margin-right: 10px;
 	}

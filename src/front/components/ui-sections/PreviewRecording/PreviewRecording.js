@@ -1,4 +1,9 @@
 /**
+ * Internal dependencies
+ */
+import Section from '../../ui-components/Section/Section';
+
+/**
  * Import styles
  */
 import './PreviewRecording.scss';
@@ -13,9 +18,9 @@ import './PreviewRecording.scss';
  */
 const PreviewRecording = ( { recording } ) => {
 	return (
-		<div className="speecheck__preview">
+		<Section className="speecheck__preview">
 			<audio controls="true" src={ recording } />
-		</div>
+		</Section>
 	);
 };
 

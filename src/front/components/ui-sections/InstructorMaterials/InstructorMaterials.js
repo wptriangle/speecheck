@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import PlayAudio from '../../ui-components/PlayButton/PlayAudio';
+import Section from '../../ui-components/Section/Section';
 
 import { isEmpty, isSet } from '../../../../helpers/common';
 
@@ -20,7 +21,7 @@ const InstructorMaterials = () => {
 	const { postContent, sentenceAudio } = speecheckVars;
 
 	return (
-		<div className="speecheck__instructor-materials">
+		<Section className="speecheck__instructor-materials">
 			<p className="speecheck__instructor-materials__sentence">
 				{ postContent }
 			</p>
@@ -29,7 +30,7 @@ const InstructorMaterials = () => {
 					<PlayAudio url={ sentenceAudio } />
 				</div>
 			) }
-		</div>
+		</Section>
 	);
 };
 

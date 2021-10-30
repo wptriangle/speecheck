@@ -4,6 +4,11 @@
 import { useEffect } from '@wordpress/element';
 
 /**
+ * Internal dependencies
+ */
+import Section from '../../ui-components/Section/Section';
+
+/**
  * Import styles
  */
 import './Error.scss';
@@ -28,9 +33,9 @@ const Error = ( { error, closeError = () => {}, autoClose = true } ) => {
 	}, [] );
 
 	return (
-		<div className="speecheck__error">
+		<Section className="speecheck__error">
 			<p>{ error }</p>
-		</div>
+		</Section>
 	);
 };
 

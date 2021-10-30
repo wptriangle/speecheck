@@ -1,6 +1,8 @@
 /**
  * Internal dependencies
  */
+import Section from '../../ui-components/Section/Section';
+
 import { isEmpty, isSet } from '../../../../helpers/common';
 
 /**
@@ -62,7 +64,7 @@ const Response = ( { returnedText } ) => {
 	};
 
 	return (
-		<div className="speecheck__response">
+		<Section className="speecheck__response">
 			<p
 				className="speecheck__response__sentence"
 				dangerouslySetInnerHTML={ {
@@ -81,7 +83,7 @@ const Response = ( { returnedText } ) => {
 					.toFixed( 2 ) * 100 }
 				%
 			</span>
-		</div>
+		</Section>
 	);
 };
 

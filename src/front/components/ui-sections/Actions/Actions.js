@@ -8,6 +8,7 @@ import { useState, useEffect } from '@wordpress/element';
  * Internal dependencies
  */
 import Button from '../../ui-components/Button/Button';
+import Section from '../../ui-components/Section/Section';
 
 import { Recorder } from '../../../../helpers/recorder';
 import { convertToBase64, isSet } from '../../../../helpers/common';
@@ -62,7 +63,7 @@ const Actions = ( {
 	}, [ isSubmitting ] );
 
 	return (
-		<div className="speecheck__actions">
+		<Section className="speecheck__actions">
 			{ isComplete ? (
 				<Button
 					onClick={ () => {
@@ -137,7 +138,7 @@ const Actions = ( {
 					) }
 				</>
 			) }
-		</div>
+		</Section>
 	);
 };
 
