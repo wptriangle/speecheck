@@ -25,10 +25,15 @@ import './Actions.scss';
  * @param {Object}   props              The component props
  * @param {Function} props.getRecording Send recording blob to parent component
  * @param {Function} props.getResults   Send results from Gapi to parent component
+ * @param {Function} props.showError    Send error to parent component
  *
  * @return {JSX} The actions code
  */
-const Actions = ( { getRecording = () => {}, getResults = () => {} } ) => {
+const Actions = ( {
+	getRecording = () => {},
+	getResults = () => {},
+	showError = () => {},
+} ) => {
 	const [ recorder ] = useState( new Recorder() );
 	const [ isRecording, setIsRecording ] = useState( false );
 	const [ recording, setRecording ] = useState( false );
@@ -42,6 +47,7 @@ const Actions = ( { getRecording = () => {}, getResults = () => {} } ) => {
 			setRecording( blob );
 			getRecording( blob );
 		} );
+		recorder.on( 'error', ( err ) => showError( err ) );
 	}, [] );
 
 	// Previous value of isSubmitting state

@@ -2,6 +2,7 @@
  * WordPress dependencies
  */
 import { useState } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -30,9 +31,16 @@ const Speecheck = () => {
 	const [ isGapiLoaded, setIsGapiLoaded ] = useState( false );
 	const [ error, setError ] = useState( false );
 
-	loadGapi( 'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E' ).then( () =>
-		setIsGapiLoaded( true )
-	);
+	loadGapi( 'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E' )
+		.then( () => setIsGapiLoaded( true ) )
+		.catch( () =>
+			setError(
+				__(
+					'Failed to load required APIs. Please try again later.',
+					'speecheck'
+				)
+			)
+		);
 
 	return (
 		<>
@@ -62,10 +70,14 @@ const Speecheck = () => {
 							getResults={ ( res ) => {
 								if ( ! isSet( res.results ) ) {
 									return setError(
-										'We did not receive a valid response from your microphone. Please try again'
+										__(
+											'We did not receive a valid response from your microphone. Please try again',
+											'speecheck'
+										)
 									);
 								}
 							} }
+							showError={ ( err ) => setError( err ) }
 						/>
 					</div>
 				) }

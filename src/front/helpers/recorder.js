@@ -2,6 +2,7 @@ export class Recorder {
 	constructor() {
 		this.onStart = () => {};
 		this.onStop = () => {};
+		this.onError = () => {};
 
 		this.gumStream = false;
 		this.rec = false;
@@ -15,6 +16,9 @@ export class Recorder {
 				return;
 			case 'stop':
 				this.onStop = fn;
+				return;
+			case 'error':
+				this.onError = fn;
 		}
 	}
 
@@ -51,7 +55,7 @@ export class Recorder {
 				}, 30000 );
 			} )
 			.catch( ( err ) => {
-				alert( err );
+				this.onError( err );
 			} );
 	}
 
