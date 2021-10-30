@@ -1,0 +1,21 @@
+{
+  "name": "speecheck",
+  "version": "1.0.0",
+  "description": "A speaking proficiency assessment plugin for WordPress",
+  "main": "src/index.js",
+  "repository": "git@github.com:nfmohit/speecheck.git",
+  "author": "nfmohit <hello@nahid.dev>",
+  "license": "GPL v2.0",
+  "private": true,
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^9.2.0",
+    "@wordpress/prettier-config": "^1.1.1",
+    "@wordpress/scripts": "^19.0.0",
+    "@wordpress/stylelint-config": "^19.1.0",
+    "prettier": "npm:wp-prettier@latest"
+  },
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  }
+}
