@@ -67,6 +67,8 @@ const Actions = ( {
 						setRecording( false );
 						getRecording( false );
 						setIsComplete( false );
+						getResults( false );
+						showError( false );
 					} }
 				>
 					{ __( 'Try Again', 'speecheck' ) }

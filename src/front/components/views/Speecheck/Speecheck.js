@@ -12,6 +12,7 @@ import Actions from '../../ui-sections/Actions/Actions';
 import PreviewRecording from '../../ui-sections/PreviewRecording/PreviewRecording';
 import Loader from '../../ui-components/Loader/Loader';
 import Error from '../../ui-sections/Error/Error';
+import Response from '../../ui-sections/Response/Response';
 
 import { isSet } from '../../../helpers/common';
 import { loadGapi } from '../../../helpers/gapi';
@@ -30,6 +31,7 @@ const Speecheck = () => {
 	const [ recording, setRecording ] = useState( false );
 	const [ isGapiLoaded, setIsGapiLoaded ] = useState( false );
 	const [ error, setError ] = useState( false );
+	const [ returnedText, setReturnedText ] = useState( false );
 
 	loadGapi( 'AIzaSyCl1q2wgDNgXOlQy9BF1KJiIEHVrVSB53E' )
 		.then( () => setIsGapiLoaded( true ) )
@@ -59,6 +61,9 @@ const Speecheck = () => {
 						{ isSet( recording ) && (
 							<PreviewRecording recording={ recording } />
 						) }
+						{ isSet( returnedText ) && (
+							<Response returnedText={ returnedText } />
+						) }
 						<Actions
 							getRecording={ ( blob ) => {
 								setRecording(
@@ -68,7 +73,11 @@ const Speecheck = () => {
 								);
 							} }
 							getResults={ ( res ) => {
-								if ( ! isSet( res.results ) ) {
+								if ( false === res ) {
+									return setReturnedText( false );
+								}
+
+								if ( ! isSet( res?.results ) ) {
 									return setError(
 										__(
 											'We did not receive a valid response from your microphone. Please try again',
@@ -76,6 +85,11 @@ const Speecheck = () => {
 										)
 									);
 								}
+
+								setReturnedText(
+									res?.results?.[ 0 ].alternatives?.[ 0 ]
+										?.transcript
+								);
 							} }
 							showError={ ( err ) => setError( err ) }
 						/>

@@ -1,0 +1,25 @@
+.speecheck__response {
+	align-items: center;
+	border-bottom: 2px solid #FF9200;
+	display: flex;
+	padding: 20px;
+	
+	&__sentence {
+		flex-basis: 90%;
+		margin-bottom: 0;
+
+		> span.highlighted {
+			background-color: #ff0266;
+			color: #fff;
+			padding: 5px;
+		}
+	}
+
+	&__score {
+		align-items: center;
+		border-left: 2px solid #FF9200;
+		display: flex;
+		flex-basis: 10%;
+		justify-content: flex-end;
+	}
+}
