@@ -1,4 +1,11 @@
+/**
+ * Internal dependencies
+ */
 import { isEmpty, isSet } from '../helpers/common';
+
+/**
+ * Import styles
+ */
 import './index.scss';
 
 const { speecheckVars } = window;
