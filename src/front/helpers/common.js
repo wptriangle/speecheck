@@ -12,6 +12,17 @@ export const isSet = ( variable ) => {
 };
 
 /**
+ * Check if a variable is empty
+ *
+ * @param {any} variable The variable to check
+ *
+ * @return {boolean} If the variable is empty
+ */
+export const isEmpty = ( variable ) => {
+	return variable.length === 0;
+};
+
+/**
  * Convert a blob to base64
  *
  * @param {blob}     blob       The blob to convert

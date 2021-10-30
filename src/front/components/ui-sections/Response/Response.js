@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { isSet } from '../../../helpers/common';
+import { isEmpty, isSet } from '../../../helpers/common';
 
 /**
  * Import styles
@@ -21,9 +21,10 @@ const Response = ( { returnedText } ) => {
 	const { sentenceRaw, postContent } = speecheckVars;
 
 	// The reference text
-	const referenceText = isSet( sentenceRaw )
-		? sentenceRaw.toLowerCase()
-		: postContent.toLowerCase();
+	const referenceText =
+		isSet( sentenceRaw ) && ! isEmpty( sentenceRaw )
+			? sentenceRaw.toLowerCase()
+			: postContent.toLowerCase();
 
 	/**
 	 * Parse out words from a sentence
