@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { isEmpty, isSet } from '../../../helpers/common';
+import { isEmpty, isSet } from '../../../../helpers/common';
 
 /**
  * Import styles

@@ -1,0 +1,17 @@
+.speecheck-metabox {
+	padding: 10px 0;
+
+	&__field-group {
+		&:not( :last-child ) {
+			margin-bottom: 20px;
+		}
+
+		label {
+			display: block;
+			font-size: 13px;
+			font-weight: 600;
+    		line-height: 1.5;
+    		margin-bottom: 10px;
+		}
+	}
+}

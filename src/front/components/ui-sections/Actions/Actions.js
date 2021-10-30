@@ -9,10 +9,10 @@ import { useState, useEffect } from '@wordpress/element';
  */
 import Button from '../../ui-components/Button/Button';
 
-import { Recorder } from '../../../helpers/recorder';
-import { convertToBase64, isSet } from '../../../helpers/common';
-import { recognizeSpeech } from '../../../helpers/gapi';
-import { usePrevious } from '../../../helpers/hooks/usePrevious';
+import { Recorder } from '../../../../helpers/recorder';
+import { convertToBase64, isSet } from '../../../../helpers/common';
+import { recognizeSpeech } from '../../../../helpers/gapi';
+import { usePrevious } from '../../../../helpers/hooks/usePrevious';
 
 /**
  * Import styles

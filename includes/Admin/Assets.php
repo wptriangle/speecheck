@@ -32,6 +32,7 @@ class Assets {
 			return;
 		}
 
+		global $post;
 		$asset_file = include( SPEECHECK_PATH . '/build/admin.asset.php');
 
 		// Plugin admin styles
@@ -50,5 +51,10 @@ class Assets {
     		$asset_file[ 'version' ],
 			true
 		);
+
+		// Pass post content to JS
+		wp_localize_script( 'speecheck-admin-scripts', 'speecheckVars', [
+			'sentenceAudio' => get_post_meta( $post->ID, 'speecheck_sentence_audio', true ),
+		] );
 	}
 }

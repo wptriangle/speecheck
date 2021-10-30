@@ -16,7 +16,6 @@ class SentenceOptionsMetabox {
 			'label' => 'Reference Audio',
 			'id' => 'speecheck_sentence_audio',
 			'type' => 'media',
-			'returnvalue' => 'url',
 		],
 	];
 
@@ -87,11 +86,7 @@ class SentenceOptionsMetabox {
 					$meta_url = '';
 
 					if ( $meta_value ) {
-						if ( $field[ 'returnvalue' ] == 'url' ) {
-							$meta_url = $meta_value;
-						} else {
-							$meta_url = wp_get_attachment_url( $meta_value );
-						}
+						$meta_url = $meta_value;
 					}
 
 					$input = sprintf(
@@ -131,7 +126,7 @@ class SentenceOptionsMetabox {
 			$output .= $this->format_rows( $label, $input );
 		}
 
-		echo '<table class="form-table"><tbody>' . $output . '</tbody></table>';
+		echo '<div class="speecheck-metabox">' . $output . '</div>';
 	}
 
 	/**
@@ -143,7 +138,7 @@ class SentenceOptionsMetabox {
 	 * @return string The formatted row
 	 */
 	public function format_rows( $label, $input ) {
-		return '<div style="margin-top: 10px;"><strong>'.$label.'</strong></div><div>'.$input.'</div>';
+		return '<div class="speecheck-metabox__field-group">' . $label . $input . '</div>';
 	}
 
 	/**
@@ -160,19 +155,13 @@ class SentenceOptionsMetabox {
 					_orig_send_attachment = wp.media.editor.send.attachment;
 
 					$( '.new-media' ).click( function( e ) {
-						var send_attachment_bkp = wp.media.editor.send.attachment;
 						var button = $( this );
 						var id = button.attr( 'id' ).replace( '_button', '' );
 						_custom_media = true;
 
 						wp.media.editor.send.attachment = function( props, attachment ) {
 							if ( _custom_media ) {
-								if ( $( 'input#' + id ).data( 'return' ) == 'url' ) {
-									$( 'input#' + id ).val( attachment.url );
-								} else {
-									$( 'input#' + id ).val(	attachment.id );
-								}
-
+								$( 'input#' + id ).val( attachment.url );
 								$( 'p#preview_' + id ).html( attachment.filename );
 							} else {
 								return _orig_send_attachment.apply( this, [ props, attachment ] );

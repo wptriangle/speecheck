@@ -6,7 +6,7 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import { isSet } from '../../../helpers/common';
+import { isSet } from '../../../../helpers/common';
 
 /**
  * Import styles

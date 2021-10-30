@@ -14,8 +14,8 @@ import Loader from '../../ui-components/Loader/Loader';
 import Error from '../../ui-sections/Error/Error';
 import Response from '../../ui-sections/Response/Response';
 
-import { isEmpty, isSet } from '../../../helpers/common';
-import { loadGapi } from '../../../helpers/gapi';
+import { isEmpty, isSet } from '../../../../helpers/common';
+import { loadGapi } from '../../../../helpers/gapi';
 
 /**
  * Import styles

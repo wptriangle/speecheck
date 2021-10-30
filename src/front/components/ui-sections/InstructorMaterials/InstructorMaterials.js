@@ -3,7 +3,7 @@
  */
 import PlayAudio from '../../ui-components/PlayButton/PlayAudio';
 
-import { isEmpty, isSet } from '../../../helpers/common';
+import { isEmpty, isSet } from '../../../../helpers/common';
 
 /**
  * Import styles
