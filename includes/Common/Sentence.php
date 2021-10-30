@@ -50,7 +50,7 @@ class Sentence {
 				'menu_icon' => 'dashicons-microphone',
 				'hierarchical' => false,
 				'show_in_rest' => false,
-				'supports' => [ 'editor' ],
+				'supports' => [ 'title', 'editor' ],
 				'publicly_queryable' => true,
 				'rewrite' => [
 					'slug' => 'sentence',
