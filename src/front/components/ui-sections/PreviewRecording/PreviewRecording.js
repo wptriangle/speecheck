@@ -1,4 +1,9 @@
 /**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * Internal dependencies
  */
 import Section from '../../ui-components/Section/Section';
@@ -18,7 +23,10 @@ import './PreviewRecording.scss';
  */
 const PreviewRecording = ( { recording } ) => {
 	return (
-		<Section className="speecheck__preview">
+		<Section
+			className="speecheck__preview"
+			label={ __( 'Preview your recording', 'speecheck' ) }
+		>
 			<audio controls="true" src={ recording } />
 		</Section>
 	);

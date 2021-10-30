@@ -1,4 +1,18 @@
 .speecheck__section {
 	border-bottom: 2px solid #FF9200;
-	padding: 20px;
+
+	&__label {
+		display: flex;
+
+		> span {
+    		background-color: #ff9200;
+    		color: #fff;
+			font-size: 14px;
+    		padding: 0 5px;
+		}
+	}
+
+	&__content {
+		padding: 20px;
+	}
 }

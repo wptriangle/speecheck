@@ -1,6 +1,8 @@
 .speecheck__response {
-	align-items: center;
-	display: flex;
+	&.speecheck__section .speecheck__section__content {
+		align-items: center;
+		display: flex;
+	}
 	
 	&__sentence {
 		flex-basis: 90%;

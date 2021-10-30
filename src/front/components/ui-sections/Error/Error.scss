@@ -2,8 +2,12 @@
 	border: 2px solid #ff0266;
 	border-radius: 8px;
 	margin-bottom: 20px;
+
+	&.speecheck__section .speecheck__section__label > span {
+		background-color: #ff0266;
+	}
 	
-	> p {
+	p {
 		margin-bottom: 0;
 	}
 }

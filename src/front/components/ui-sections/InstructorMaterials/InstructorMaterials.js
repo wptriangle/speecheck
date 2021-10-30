@@ -1,4 +1,9 @@
 /**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * Internal dependencies
  */
 import PlayAudio from '../../ui-components/PlayButton/PlayAudio';
@@ -21,7 +26,13 @@ const InstructorMaterials = () => {
 	const { postContent, sentenceAudio } = speecheckVars;
 
 	return (
-		<Section className="speecheck__instructor-materials">
+		<Section
+			className="speecheck__instructor-materials"
+			label={ __(
+				'Record yourself while reading this sentence',
+				'speecheck'
+			) }
+		>
 			<p className="speecheck__instructor-materials__sentence">
 				{ postContent }
 			</p>

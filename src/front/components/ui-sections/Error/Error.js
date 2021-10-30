@@ -2,6 +2,7 @@
  * WordPress dependencies
  */
 import { useEffect } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -33,7 +34,10 @@ const Error = ( { error, closeError = () => {}, autoClose = true } ) => {
 	}, [] );
 
 	return (
-		<Section className="speecheck__error">
+		<Section
+			className="speecheck__error"
+			label={ __( 'Error', 'speecheck' ) }
+		>
 			<p>{ error }</p>
 		</Section>
 	);

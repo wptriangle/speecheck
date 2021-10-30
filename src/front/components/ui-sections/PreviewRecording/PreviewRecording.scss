@@ -1,7 +1,9 @@
 .speecheck__preview {
-	padding: 20px 20px 8px 20px;
+	&.speecheck__section .speecheck__section__content {
+		padding: 20px 20px 8px 20px;
+	}
 	
-	> audio {
+	audio {
 		width: 100%;
 	}
 }

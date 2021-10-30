@@ -1,4 +1,9 @@
 /**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * Internal dependencies
  */
 import Section from '../../ui-components/Section/Section';
@@ -64,7 +69,10 @@ const Response = ( { returnedText } ) => {
 	};
 
 	return (
-		<Section className="speecheck__response">
+		<Section
+			className="speecheck__response"
+			label={ __( 'Results', 'speecheck' ) }
+		>
 			<p
 				className="speecheck__response__sentence"
 				dangerouslySetInnerHTML={ {
